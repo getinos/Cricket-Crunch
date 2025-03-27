@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0a4a3c, #1c6e5a); 
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.067);
+    border-radius: 15px;
+    border: 1PX SOLID rgba(255, 255, 255, 0.393);
+    box-shadow: 0 0 20px rgba(76, 175, 79, 0.379);
+    padding: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.team-list h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #d4af37;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+.leaderboard-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.left-column, .right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.team-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.team-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #d4af37;
+}
+
+.team-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0a4a3c;
+    flex-grow: 1;
+    margin: 0 15px;
+}
+
+.score {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d4af37;
+    background-color: #0a4a3c;
+    padding: 5px 15px;
+    border-radius: 20px;
+    min-width: 60px;
+    text-align: center;
+}
+.back {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back a {
+    background-color: #d4af37;
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: #0a4a3c;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.back a:hover {
+    background-color: #0a4a3c; 
+    color: #d4af37; 
+}
