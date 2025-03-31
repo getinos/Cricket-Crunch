@@ -1,0 +1,593 @@
+body{
+    overflow: hidden;
+   /* background : linear-gradient(90deg, #F9F9F9 ,#1B2155, #005DAB,#0075D2,#002F85);  
+    background-size: 300% 100%;  /* Make it wider to create the motion effect */
+    animation: moveGradient 10s linear infinite;
+    background-color: black;
+    background: url(../../images/styles/background.gif) center / cover no-repeat;
+}
+/*@keyframes moveGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}*/
+.container {
+    display: grid;
+    grid-template-columns: 0.8fr 2fr 0.9fr; 
+    height: 100vh;
+    gap: 20px;
+    padding: 20px;
+    margin-top: 180px;
+   
+}
+.hero-section{
+    display: flex;
+    flex-direction: column;
+}
+.player-card {
+  width: 100%;
+  /* background: white; */
+  border-radius: 10px;
+  overflow: hidden;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  box-shadow: 0 0 20px rgba(76, 175, 79, 0.304);
+  border: 1px solid rgba(255, 255, 255, 0.541);
+}
+.banner {
+    position: relative;
+    height: 37vh;
+    /*background-color:#153832e6;*/      
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    /* background: url('../../images/styles/bg.png') center / cover no-repeat; */
+}
+.player-img {
+    position: absolute;
+    /* bottom: -50px; */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 293px;
+    object-fit: contain;
+    /*border-radius: 50%;
+    border: 4px solid #c3e4fa;*/
+}
+.player-stats{
+    display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+        padding: 20px;
+        background:#153832e6;
+        height: 115px;
+        border-radius: 12px;
+        box-shadow: 0 0 20px rgba(76, 175, 79, 0.304);
+        border: 1px solid rgba(255, 255, 255, 0.541);
+        margin-top: 18px;
+}
+.stats {
+    padding: 60px 20px 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+.stat {
+    background: linear-gradient(to right, rgb(226, 191, 120), rgb(224, 171, 85));
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 14px;
+}
+.stat h3 {
+    color: #005DAB;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+.stat p {
+    color: #333;
+    font-size: 16px;
+}
+.budget-section{
+ 
+    width: 100%;
+    height: 30vh;
+}
+
+/*.current-price {
+    border: 2px solid #1b2155;
+    background: #ffffff;
+    width: 15rem;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: larger;
+    color: #1b2155;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}*/
+
+.card {
+    display: flex;
+    width: 812.96px;
+    height: 250px;
+    padding: 25px;
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    box-shadow: 0 8px 12px rgba(43, 124, 218, 0.2);
+    border-radius: 15px;
+    transition: 0.3s;
+    position: relative;
+    margin-top: 20px;
+
+}
+
+.left, .right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+
+.right {
+    position: relative;
+    padding-left: 20px;
+}
+
+/* Custom shorter left border */
+.right::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 20%;
+    height: 60%;
+    width: 3px;
+    background-color: #2196F3;
+    border-radius: 2px;
+}
+
+/*button {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    /*background: linear-gradient(135deg, #0075d2, #005dab);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    outline: none;
+}*/
+
+/*button:hover {
+    background: linear-gradient(135deg, #005dab, #004494);
+    box-shadow: 0 6px 10px rgba(15, 116, 231, 0.2);
+}*/
+
+.amount {
+    font-size: 28px;
+    font-weight: bold;
+    color: #1b5e20;
+}
+
+.price-decrease {
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    margin-bottom: 15px;
+    background: #ffebee;
+    padding: 8px 15px;
+    border-radius: 8px;
+}
+
+
+.bidding-history-container {
+    background-color: #153832e6;
+    border: 1PX SOLID rgba(255, 255, 255, 0.393);
+    box-shadow: 0 0 20px rgba(76, 175, 79, 0.304);
+    padding: 20px;
+    border-radius: 10px;
+    /* margin-top: 20px; */
+    margin-bottom: 40px;
+    height: 88vh;
+    margin-top: 10px;
+}
+.bidding-history-box 
+{
+    max-height: 150px;
+    overflow-y: auto;
+    background:#c6c9ce3d;
+    padding: 10px;
+    border-radius: 8px;
+
+}
+
+#bidding-history1{
+  box-shadow: 0 0 20px rgba(11, 221, 186, 0.877);
+  border: 1px solid rgba(255, 255, 255, 0.541);
+  font-weight: bold; 
+  background-color: hsla(220, 50%, 50%, 2.25); 
+  color: white;
+}
+
+.team-details{
+    border-radius: 5px;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #153832e6;
+    border-radius: 10px;
+    margin-top: 29px;
+    border: 1PX SOLID rgba(255, 255, 255, 0.393);
+    max-width: 500px;
+    height: 88vh;
+    margin-top: 9px;
+    box-shadow: 0 0 20px rgba(76, 175, 79, 0.304);
+}
+
+.bidder-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.bidder-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.bidder-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+.role-tracker {
+  /* display: grid; */
+  background-image: url('../../images/logo/grd.jpg');
+    grid-template-columns: repeat(3, 0.8fr);
+    gap: 15px;
+    width: 100%;
+    background-color: #00ff0459;
+    border-radius: 10%;
+    height: 80%;
+    border: 8px solid #145214;
+    padding: 8% 0px;
+    background-repeat: no-repeat;
+    background-size: 220%;
+    background-position-x: 50%;
+    background-position-y: -41px;
+}
+
+.result1, .result2, .result3, .result4 {
+  display: flex;
+  flex-wrap: wrap;   /* ✅ Allows wrapping to the next row */
+  justify-content: space-between;  /* Evenly spaces elements */
+}
+
+.result1 > div, .result2 > div, .result3 > div, .result4 > div {
+  flex: 0 0 calc(33.33% - 10px);   /* ✅ Each element takes 1/3 of the row */
+  box-sizing: border-box;
+}
+
+.role {
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+/* background: linear-gradient(to right, rgb(226, 191, 120), rgb(224, 171, 85)); */
+/* border-radius: 50%; */
+/* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+/* text-align: center; */
+/* width: 100%; */
+/* height: 60%; */
+overflow: hidden;
+}
+
+.role img {
+width: 56px;
+height: 56px;
+margin-top: 20px;
+transform: scale(3.5);
+padding: 40px 0px 0px 0px;
+}
+
+
+.bidder-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.bidder-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.player-category {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, rgb(226, 191, 120), rgb(224, 171, 85));
+   padding: 2px; 
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  /* height: 26vh; */
+  width: 29vh;
+  margin-top: 20px;
+}
+
+.category-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-right: 10px;
+}
+.title_team{
+  margin-top: -15px;
+}
+
+.slots {
+  display: flex;
+  gap: 2px;
+  justify-content: space-between;
+}
+
+.slot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #153832; /* Default empty slot */
+  border: 2px solid #153832;
+  margin-right: 7px;
+}
+
+/*.stat-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    background: #1c1b1b;
+    border-radius: 8px;
+    margin: 10px 0;
+}*/
+
+
+/* first shade - #153832 , rgba(21,56,50,255)
+    second shade - #8eb69b , rgba(142,182,155,255)
+    third shade - #daf1dd, rgba(218,241,221,255)
+
+
+
+    ipl 2025 - green #0a3d3d , 
+                golden #fbdb9c , rgb(251 , 219 , 156 , 255)
+*/
+
+.team-rank {
+  display: flex;
+  justify-content: space-between;
+  padding: 21px;
+  margin-bottom: 20px;
+  /* background: linear-gradient(135deg, #ff7b00, #d66a12); */
+  border-radius: 8px;
+}
+
+.bidding-card {
+    background: #153832e6;
+    border-radius: 20px;
+    padding: 25px;
+    width: 810px;
+    height: 223px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    animation: fadeIn 0.5s ease-in-out;
+    margin-top: 20px;
+    box-shadow: 0 0 20px rgba(76, 175, 79, 0.304);
+    border: 1px solid rgba(255, 255, 255, 0.541);
+  }
+  
+  /* Left Section (Current Price and Amount Remaining) */
+  .left-section {
+    width: 50%;
+    padding-right: 25px;
+    border-right: 2px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .current-price, .amount-remaining {
+    margin: 15px 0;
+    font-size: 1.2rem;
+    color: #a0a0c0;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .current-price:hover, .amount-remaining:hover {
+    transform: translateY(-5px);
+    color: #ffffff;
+  }
+  
+  .current-price span, .amount-remaining span {
+    font-weight: bold;
+    color: #ffffff;
+    display: block;
+    margin-top: 5px;
+  }
+  
+  #current-price-value {
+    font-size: 2rem;
+    color: #ff6f61;
+    font-weight: 700;
+    animation: pulse 0.5s ease;
+  }
+  
+  #amount-remaining-value {
+    font-size: 2rem;
+    color: #4a6cf7;
+    font-weight: 700;
+  }
+  
+  /* Right Section (Timer and Bid Button) */
+  .right-section {
+    width: 50%;
+    padding-left: 25px;
+  }
+  
+  .timer {
+    margin: 15px 0;
+    font-size: 1.2rem;
+    color: #a0a0c0;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .timer:hover {
+    transform: translateY(-5px);
+    color: #ffffff;
+  }
+  
+  .timer span {
+    font-weight: bold;
+    color: #ffffff;
+    display: block;
+    margin-top: 5px;
+  }
+  
+  #timer {
+    font-size: 2rem;
+    color: #4a6cf7;
+    font-weight: 700;
+  }
+  
+  .progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    margin-top: 10px;
+    overflow: hidden;
+  }
+  
+  #progress {
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(90deg, #ff6f61, #ff4a4a);
+    border-radius: 5px;
+    transition: width 1s linear;
+  }
+  
+  #bid-button {
+    background: linear-gradient(135deg, #ff6f61, #ff4a4a);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 111, 97, 0.4);
+    margin-top: 20px;
+    font-weight: 600;
+  }
+  
+  #bid-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255, 111, 97, 0.6);
+  }
+  
+  #bid-button:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+
+.team-role
+{
+    font-size: small;
+    margin-bottom: 28px;
+    margin-top: 0;
+    font-weight:bold ;
+}
+  /*#00525e*/
+
+#player-name
+{
+  box-shadow: 0 0 20px rgba(76, 175, 79, 0.304);
+  border: 1px solid rgba(255, 255, 255, 0.541);
+  background-color: #153832;
+  height: 55px;
+  width: 256px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px;
+  font-size: 20px;
+  font-weight: bold;
+  color:  #fbdb9c ;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-bottom: 12px;
+
+}
+
+.player-name-container
+{
+  background-color:#153832e6;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-div
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
