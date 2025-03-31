@@ -23,29 +23,17 @@
          header("location: ./index.php?uid=".$_SESSION["team_id"]."&id=".$fetchId);
 
     }
-    $sql = "SELECT * FROM player_details WHERE sold_resume = :currentId";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(":currentId", $currentId, PDO::PARAM_INT);
-    $stmt->execute();
-   
-    
-    $record = $stmt->fetch(PDO::FETCH_ASSOC);
-    $sold_unsold = $record['sold_resume'];
-    if ($sold_unsold ) {
-        echo "<script> let bidButton = document.getElementById('bid-button');
-  bidButton.disabled = false;
-  bidButton.style.backgroundColor = '#008000';  
-  bidButton.style.cursor = 'pointer';</script>";
-    }
+
        
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!-- <meta http-equiv="refresh" content="2">  -->
+     <meta http-equiv="refresh" content="2"> 
     <title>Document</title>
     <link rel="stylesheet" href="./style/style.css">
 

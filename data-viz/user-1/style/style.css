@@ -1,5 +1,4 @@
 body{
-    font-family: Arial, Helvetica, sans-serif;
     overflow: hidden;
    /* background : linear-gradient(90deg, #F9F9F9 ,#1B2155, #005DAB,#0075D2,#002F85);  
     background-size: 300% 100%;  /* Make it wider to create the motion effect */
@@ -21,7 +20,7 @@ body{
     height: 100vh;
     gap: 20px;
     padding: 20px;
-    margin-top: 6px;
+    margin-top: 180px;
    
 }
 .hero-section{
@@ -218,6 +217,14 @@ body{
 
 }
 
+#bidding-history1{
+  box-shadow: 0 0 20px rgba(11, 221, 186, 0.877);
+  border: 1px solid rgba(255, 255, 255, 0.541);
+  font-weight: bold; 
+  background-color: hsla(220, 50%, 50%, 2.25); 
+  color: white;
+}
+
 .team-details{
     border-radius: 5px;
     height: 90vh;
@@ -253,93 +260,108 @@ body{
     font-weight: bold;
 }
 
+
 .role-tracker {
-    /* display: grid; */
-    background-image: url(../../images/logo/grd.jpg);
+  /* display: grid; */
+  background-image: url('../../images/logo/grd.jpg');
     grid-template-columns: repeat(3, 0.8fr);
     gap: 15px;
     width: 100%;
-    background-color: #00ff0596;
+    background-color: #00ff0459;
     border-radius: 10%;
-    height: 87%;
+    height: 80%;
     border: 8px solid #145214;
     padding: 8% 0px;
     background-repeat: no-repeat;
-    background-size: 361%;
-    background-position-x: 48%;
-    background-position-y: -19px;
+    background-size: 220%;
+    background-position-x: 50%;
+    background-position-y: -41px;
+}
+
+.result1, .result2, .result3, .result4 {
+  display: flex;
+  flex-wrap: wrap;   /* ✅ Allows wrapping to the next row */
+  justify-content: space-between;  /* Evenly spaces elements */
+}
+
+.result1 > div, .result2 > div, .result3 > div, .result4 > div {
+  flex: 0 0 calc(33.33% - 10px);   /* ✅ Each element takes 1/3 of the row */
+  box-sizing: border-box;
 }
 
 .role {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* background: linear-gradient(to right, rgb(226, 191, 120), rgb(224, 171, 85)); */
-  /* border-radius: 50%; */
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
-  /* text-align: center; */
-  /* width: 100%; */
-  /* height: 60%; */
-  overflow: hidden;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+/* background: linear-gradient(to right, rgb(226, 191, 120), rgb(224, 171, 85)); */
+/* border-radius: 50%; */
+/* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+/* text-align: center; */
+/* width: 100%; */
+/* height: 60%; */
+overflow: hidden;
 }
 
 .role img {
-  width: 56px;
-  height: 56px;
-  margin-top: 20px;
-  transform: scale(1);
-  padding: 40px 0px 0px 0px;
+width: 56px;
+height: 56px;
+margin-top: 20px;
+transform: scale(3.5);
+padding: 40px 0px 0px 0px;
 }
 
 
 .bidder-info {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
 .bidder-logo {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 }
 
 .player-category {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: linear-gradient(to right, rgb(226, 191, 120), rgb(224, 171, 85));
-     padding: 2px; 
-    border-radius: 8px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
-    /* height: 26vh; */
-    width: 29vh;
-    margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, rgb(226, 191, 120), rgb(224, 171, 85));
+   padding: 2px; 
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  /* height: 26vh; */
+  width: 29vh;
+  margin-top: 20px;
 }
 
 .category-title {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-    margin-right: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-right: 10px;
+}
+.title_team{
+  margin-top: -15px;
 }
 
 .slots {
-    display: flex;
-    gap: 2px;
-    justify-content: space-between;
+  display: flex;
+  gap: 2px;
+  justify-content: space-between;
 }
 
 .slot {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: #153832; /* Default empty slot */
-    border: 2px solid #153832;
-    margin-right: 7px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #153832; /* Default empty slot */
+  border: 2px solid #153832;
+  margin-right: 7px;
 }
 
 /*.stat-item {
@@ -525,18 +547,17 @@ body{
   }
 
 
-.team-role {
-      /* font-size: small; */
-      margin-bottom: 45px;
-      margin-top: 0;
-      font-weight: bold;
-      position: relative;
-      /* width: min-content; */
-      background-color: white;
+.team-role
+{
+    font-size: small;
+    margin-bottom: 28px;
+    margin-top: 0;
+    font-weight:bold ;
 }
   /*#00525e*/
 
-#player-name {
+#player-name
+{
   box-shadow: 0 0 20px rgba(76, 175, 79, 0.304);
   border: 1px solid rgba(255, 255, 255, 0.541);
   background-color: #153832;
@@ -569,52 +590,4 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.title_team{
-  font-size: 20px;
-  font-weight: bold;
-  /* color: #005DAB; */
-  margin-bottom: 5px;
-  text-align: center;
-  /* text-transform: capitalize; */
-  /* background-color: #00ff05e3; */
-  /* border: 1px solid #145214; */
-  color: #022f02;
-  display: block;
-}
-
-.result4{
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(4, 1fr);
-  justify-self: center;
-  margin: 0 10px;
-  height: 100px;
-}
-
-.result2{
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(2, 1fr);
-  justify-self: center;
-  margin: 0 10px;
-  height: 100px;
-}
-
-.result1{
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(1, 1fr);
-  justify-self: center;
-  margin: 0 10px;
-  height: 100px;
-}
-
-.role .unknown{
-  width: 56px;
-  height: 56px;
-  margin-top: 20px;
-  transform: scale(1)!important;
-  padding: 41px 2px 2px 0px;
 }
