@@ -90,6 +90,10 @@ function loadNextRecord() {
 
                 // Update URL without reloading
                  window.history.pushState({}, "", "?id=" + data.player_id);
+<<<<<<< HEAD
+
+               // window.location.href = "?id=" + data.player_id;
+=======
 
                // window.location.href = "?id=" + data.player_id;
                 
@@ -128,12 +132,52 @@ function loadPrevRecord() {
                  //window.history.pushState({}, "", "?id=" + data.player_id);
 
                  window.history.pushState({}, "", "?id=" + currentId);
+>>>>>>> 8f30fc0c4ee93c0038de5f2c17b3df998d9a8b11
+                
+            }
+        })
+        .catch(error => console.error("Error fetching next record:", error));
+}
+
+<<<<<<< HEAD
+function loadPrevRecord() {
+    let currentId = parseInt(new URLSearchParams(window.location.search).get("id")) || 0;
+    
+    fetch("Backend/get_prev_player.php?id=" + currentId)
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                alert(data.error);
+            } else {
+
+                // Update content
+                let path = "./../images/Players/";
+                document.getElementById("player-image").src = path + data.player_img;
+
+                document.getElementById("player-name").innerText = data.player_name;
+                document.getElementById("player-role").innerText = data.player_specialism;
+                // document.getElementById("current-bid").innerText = "Current Bid: ₹" + data.player_price + " Lakh";
+                document.getElementById("player-4").innerText = data.player_4s;
+                document.getElementById("player-6").innerText = data.player_6s;
+                document.getElementById("player-wickets").innerText = data.player_wkts;
+                document.getElementById("player-matches").innerText = data.player_ipl_mat;
+                document.getElementById("player-status").innerText = data.player_status;
+                document.getElementById("player-catches").innerText = data.player_catches;
+                document.getElementById("player-run-outs").innerText = data.player_run_outs;
+                // document.getElementById("player-stump").innerText = data.player_stumpings;
+
+                // Update URL without reloading
+                 //window.history.pushState({}, "", "?id=" + data.player_id);
+
+                 window.history.pushState({}, "", "?id=" + currentId);
                 
             }
         })
         .catch(error => console.error("Error fetching previous record:", error));
 }
 
+=======
+>>>>>>> 8f30fc0c4ee93c0038de5f2c17b3df998d9a8b11
 
 //document.getElementById('resume').style.visibility = 'hidden';
 

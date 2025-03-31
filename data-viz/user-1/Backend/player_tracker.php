@@ -24,7 +24,8 @@
     if (is_array($result)) {
         $img_path = "../images/Players/";
         
-        echo "<h3 class='title_team'>WICKETKEEPER</h3>
+        echo "
+        <h3 class='title_team'>WICKETKEEPER</h3>
                 <div class='result1'>";
         
         foreach ($result as $row) {            
