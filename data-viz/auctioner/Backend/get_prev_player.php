@@ -8,8 +8,13 @@
     $s_query = "UPDATE player_details SET status= :id WHERE player_id = :currentId";
     $s_stmt = $conn->prepare($s_query);
     $s_stmt->execute([':id' => 0, ':currentId' => $currentId]);
-    
 
+    // Deleting record of current player from Winners table
+    $d_sql = "DELETE FROM winner WHERE player_id = :currentId";
+    $d_stmt = $conn->prepare($d_sql);
+    $d_stmt->bindParam(':currentId', $currentId, PDO::PARAM_INT);
+    $d_stmt->execute();
+    
     // ✅ 2. SELECT Previous Record from player_details
     $newPlayerId = $currentId-1;
     $stmt = $conn->prepare("SELECT * FROM player_details where player_id = :playerId");
