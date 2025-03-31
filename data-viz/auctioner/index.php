@@ -1,5 +1,23 @@
 <?php
     // include './Backend/session_check.php';
+
+    include './../DB/config.php';
+
+    $currentId = isset($_GET['id']) ? intval($_GET['id']) : 0;
+
+    $sql = "SELECT player_id FROM player_details WHERE status = 1 Limit 1";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    $fetchId = $result['player_id'];
+
+    if($fetchId != $currentId) {
+        // header("location: ./Backend/loading.php?uid=".$_SESSION["team_id"]."&id=".$currentId);
+         header("location: ./index.php?id=".$fetchId);
+
+    }
+       
 ?>
 
 <!DOCTYPE html>
@@ -7,7 +25,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="refresh" content="2">
+        <!-- <meta http-equiv="refresh" content="2"> -->
         <title>IPL Bidding Dashboard</title>
         <link rel="stylesheet" href="style/styles1.css">
     </head>
