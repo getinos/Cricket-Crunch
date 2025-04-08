@@ -11,7 +11,30 @@
 
     $record = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($record):
+    $sql_2 = "SELECT * FROM bidding WHERE player_id = :currentId ORDER BY time DESC LIMIT 1";
+    $stmt_2 = $conn->prepare($sql_2);
+    $stmt_2->bindParam(":currentId", $currentId, PDO::PARAM_INT);
+    $stmt_2->execute();
+    $result = $stmt_2->fetch(PDO::FETCH_ASSOC);
+
+    
+    $team_name = "None";  
+
+    if ($result) { 
+        $teamId = $result["team_id"];
+
+        $sql_3 = "SELECT team_name FROM team WHERE team_id = :teamId";
+        $stmt_3 = $conn->prepare($sql_3);
+        $stmt_3->bindParam(":teamId", $teamId, PDO::PARAM_INT);
+        $stmt_3->execute();
+        $team = $stmt_3->fetch(PDO::FETCH_ASSOC);
+
+        if ($team) {
+            $team_name = htmlspecialchars($team["team_name"]);
+        }
+    }
+
+    if ($record ):
         // echo "<p>
         //     <strong>Name:</strong> 
         //     <span id='record-name'>";
@@ -42,6 +65,8 @@
         $stump = htmlspecialchars($record['player_stumpings']);
         $sold_status = htmlspecialchars($record['sold_resume']);
 
+        $team_name = htmlspecialchars($team['team_name']);
+
         echo "<div class='player-image-container'>
                 <img id='player-image' src='".$img_path.$img."' alt='Player'>
             </div>
@@ -53,7 +78,7 @@
                 <p class='role' id='player-role'> $role </p>
                 <p class='role' id='player-status'> $status </p>
                 
-                <div class='current-bidder' id='current-bidder'><strong>Bidder: </strong> None </div>
+                <div class='current-bidder' id='current-bidder'><strong>Bidder: $team_name </strong>  </div>
             </div>";
         
         echo "<div class='top stat-item'><span>Total Matches Played:</span> <span id='player-matches'> $matches </span></div>
@@ -61,20 +86,22 @@
             <div class='player-stats'>
                 
                 <div class='bat-stats'>
-                    <h3>Batting Stats</h3>
+                  
                     <div class='stat-item'><span>Number of 4s:</span> <span id='player-4'> $run4 </span></div>
                     <div class='stat-item'><span>Number of 6s:</span> <span id='player-6'> $run6 </span></div>
                 </div>
 
                 <div class='bowl-stats'>
-                    <h3>Bowling Stats</h3>
+                  
                     <div class='stat-item'><span>Wickets:</span> <span id='player-wickets'> $wkts </span></div>
+                    <div class='stat-item'><span>Stumping</span> <span id='player-wickets'> $stump </span></div>
+
                     <!--div class='current-bid' id='current-bid'> Current Bid: ₹ $price Lakh </div-->
 
                 </div>
 
                 <div class='field-stats'>
-                    <h3>Fielding Stats</h3>
+                   
                     <div class='stat-item'><span>Catches:</span> <span id='player-catches'> $catches </span></div>
                     <div class='stat-item'><span>Run Outs:</span> <span id='player-run-outs'> $run_outs </span></div>
                 </div>

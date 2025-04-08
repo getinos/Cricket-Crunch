@@ -35,18 +35,33 @@ $team = isset($_GET['uid']) && is_numeric($_GET['uid']) ? intval($_GET['uid']) :
         echo "<script type='text/javascript'> alert('Invalid Amount')</script>";
     }
 
-    $s_sql = "SELECT sold_resume FROM player_details WHERE player_id = :currentId";
+    $s_sql = "SELECT sold_resume, player_specialism FROM player_details WHERE player_id = :currentId";
     $s_stmt = $conn->prepare($s_sql);
     $s_stmt->execute([':currentId' => $currentId]);
 
     $s_result = $s_stmt->fetch();
     $sold_status = htmlspecialchars($s_result['sold_resume']);
+    $player_specialism = htmlspecialchars($s_result['player_specialism']);
 
-    echo "<script>console.log('" . $sold_status . "');</script>";
+    echo "<script>console.log('" . $player_specialism . "');</script>";
 
 if ($result) {
     if ($sold_status == 0 || "") {
-        echo "<button id='bid-button' onclick='placeBid({$team}, {$C_amount}, {$currentId})'> BID NOW (₹{$C_amount} L)</button>";    
+        if ($player_specialism == "ALL-ROUNDER" && $_SESSION["all"] < 2) {
+            echo "<button id='bid-button' onclick='placeBid({$team}, {$C_amount}, {$currentId})'> BID NOW (₹{$C_amount} L)</button>";    
+        
+        }else if ($player_specialism == "WICKETKEEPER" && $_SESSION["wicket"] < 1) {
+            echo "<button id='bid-button' onclick='placeBid({$team}, {$C_amount}, {$currentId})'> BID NOW (₹{$C_amount} L)</button>";    
+        
+        }else if ($player_specialism == "BOWLER" && $_SESSION["bowl"] < 4) {
+            echo "<button id='bid-button' onclick='placeBid({$team}, {$C_amount}, {$currentId})'> BID NOW (₹{$C_amount} L)</button>";    
+        
+        }else if ($player_specialism == "BATTER" && $_SESSION["bat"] < 4) {
+            echo "<button id='bid-button' onclick='placeBid({$team}, {$C_amount}, {$currentId})'> BID NOW (₹{$C_amount} L)</button>";    
+        
+        }else{
+            echo "<button id='bid-button' disabled> BID LOCKED </button>";
+        }
     }else{
         echo "<button id='bid-button' disabled> BID LOCKED </button>";
     }

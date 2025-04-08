@@ -171,3 +171,8 @@ updateDisplay();
 //       })
 //       .catch(error => console.error("Error fetching player status:", error));
 // });
+
+// var bat = Document.getElementById("bat_data").value;
+// var ball = Document.getElementById("bowl_data").value;
+// var all = Document.getElementById("all_data").value;
+// var wkt = Document.getElementById("wkt_data").value;

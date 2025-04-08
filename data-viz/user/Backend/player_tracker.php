@@ -110,7 +110,16 @@
                 </div>";
         }
         echo "</div>";
+
+        echo "<input value='".$bats."' type='hidden' id='bat_data'>
+                <input value='".$bowl."' type='hidden' id='bowl_data'>
+                <input value='".$all."' type='hidden' id='all_data'>
+                <input value='".$wicket."' type='hidden' id='wkt_data'>";
+
+        $_SESSION["bat"] = $bats;
+        $_SESSION["bowl"] = $bowl;
+        $_SESSION["all"] = $all;
+        $_SESSION["wicket"] = $wicket;
             
     }
-
 ?>
