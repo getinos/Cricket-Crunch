@@ -108,7 +108,20 @@
                                                                      
             </div>";
             
-           
+            echo "  
+            <button class='next-bid-button' onclick='loadPrevRecord()'>prev Player <</button>";
+
+
+            if ($sold_status == 0 || $sold_status === "") {
+                echo "<button class='sold-player-button' onclick='markPlayerAsSold()' id='bid'>stop bid</button>";    
+            }else{
+                echo "<button class='resume-bid-button' onclick='resumeBid()' id='resume'>resume bid   </button>";
+            }
+
+            echo "  
+                    <button class='next-bid-button' onclick='loadNextRecord()'>Next Player  ></button>
+                    <button class='sold-player-button' onclick='restart_database()' id='bid'>start game</button>";
+
     else: "<p>No record found</p>"; 
     endif;
 ?>
